@@ -1,0 +1,428 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+html {
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth; 
+}
+body {
+    margin: 0;
+    background-color: #F8F4F1; /* Fondo Nude/Beige muy suave y artístico */
+}
+
+/* =========================================
+   1. ENCABEZADO Y MENÚ
+   ========================================= */
+.header-principal {
+    background-color: #E6DAEE; /* Lila Pastel elegante */
+    color: #524556; /* Tono Berenjena oscuro */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center; 
+    padding: 25px 0 10px 0; 
+    box-shadow: 0 4px 10px rgba(82, 69, 86, 0.05); 
+    position: relative;
+    z-index: 100;
+}
+
+.header-principal h1 {
+    margin: 0;
+    margin-bottom: 15px; 
+    font-size: 2.8rem; 
+    letter-spacing: 2px;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px; 
+}
+
+.menu-lista > li {
+    position: relative; 
+}
+
+.menu-lista > li > a {
+    display: block;
+    padding: 8px 20px;
+    color: #524556; 
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 0.5rem;
+}
+
+.menu-lista > li > a:hover {
+    background-color: #DBCFDF; 
+}
+
+/* --- MENÚ DESPLEGABLE --- */
+.dropdown-menu {
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background-color: #F8F4F1; 
+    min-width: 220px; 
+    box-shadow: 0 10px 20px rgba(82, 69, 86, 0.1); 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 2000;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    border: 1px solid #E6DAEE; 
+}
+
+.menu-lista > li:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #524556; 
+    text-decoration: none;
+    border-bottom: 1px dashed #E6DAEE; 
+    transition: background-color 0.3s, padding-left 0.3s;
+    text-align: center; 
+}
+
+.dropdown-menu li a:hover {
+    background-color: #E6DAEE; 
+    padding-left: 20px; 
+}
+
+/* =========================================
+   2. PORTADA BANNER (CON IMAGEN TRASLÚCIDA HTML)
+   ========================================= */
+.portada {
+    position: relative;
+    width: 100%;
+    height: 50vh; 
+    display: flex;
+    align-items: center; 
+    padding: 0 5%;
+    box-sizing: border-box;
+    overflow: hidden; /* Evita que la imagen se salga de los bordes */
+    background-color: #E6DAEE; /* Color de fondo base (tu lila claro) que se mezclará con la imagen */
+}
+
+/* Configuración de la nueva imagen de fondo */
+.imagen-fondo-portada {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen llene todo el espacio sin deformarse */
+    opacity: 0.3; /* MAGIA AQUÍ: 0.1 es muy transparente, 0.9 es casi sólida. Ajústalo a tu gusto */
+    z-index: 1; /* Manda la imagen al fondo */
+}
+
+.portada-contenido {
+    position: relative;
+    z-index: 2; /* Trae el texto hacia adelante para que quede sobre la imagen */
+    max-width: 600px;
+}
+
+.portada-contenido h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+    /* Sombras sutiles para que el texto resalte sobre cualquier imagen */
+    text-shadow: 0px 2px 5px rgba(255, 255, 255, 0.8); 
+}
+
+.portada-contenido p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-shadow: 0px 2px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   3. MENSAJE DE MARCA "FLOTANTE"
+   ========================================= */
+.mensaje-marca {
+    text-align: center;
+    padding: 40px 30px;
+    background-color: #FFFFFF; 
+    max-width: 850px;
+    margin: -50px auto 60px auto; 
+    position: relative; 
+    z-index: 10;
+    border-radius: 1rem; 
+    box-shadow: 0 15px 30px rgba(82, 69, 86, 0.08); 
+    border: 1px solid #E6DAEE; 
+}
+
+.mensaje-marca h2 {
+    color: #9B7EAA; 
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.mensaje-marca p {
+    color: #746677; 
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* =========================================
+   4. TÍTULOS DE LAS SECCIONES
+   ========================================= */
+.titulo-seccion {
+    text-align: center;
+    margin: 40px auto 20px auto;
+}
+
+.titulo-seccion h2 {
+    color: #9B7EAA; 
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.titulo-seccion p {
+    color: #746677;
+    font-size: 1.2rem;
+    margin-top: 0;
+    font-style: italic; 
+}
+
+.subtitulo-seccion {
+    text-align: center;
+    color: #524556; 
+    font-size: 1.8rem;
+    margin: 40px auto 10px auto;
+    border-bottom: 2px dashed #DBCFDF; 
+    max-width: 300px;
+    padding-bottom: 10px;
+}
+
+/* =========================================
+   5. CATÁLOGO DE PRODUCTOS
+   ========================================= */
+.imagen1 {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 40px; 
+    max-width: 1100px;
+    margin: 0 auto 80px auto; 
+    padding: 30px 20px 0 20px;
+}
+
+section article {
+    background-color: #FFFFFF; 
+    border-radius: 0.8rem;
+    padding: 1rem 0;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(82, 69, 86, 0.05);
+    border: 1px solid #F8F4F1;
+    transition: all 0.3s ease;
+    width: 320px; 
+    box-sizing: border-box;
+}
+
+/* CORRECCIÓN: Se eliminó el :hover duplicado */
+section article:hover {
+    box-shadow: 0 10px 25px rgba(82, 69, 86, 0.15);
+    transform: translateY(-8px); 
+    border-color: #E6DAEE; 
+}
+
+.imagen1 article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #524556; 
+}
+
+.imagen1 article ol,
+.imagen1 article .galeria-oculta {
+    display: none; 
+}
+
+.precio {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #9B7EAA; 
+    margin: 0.2rem 0 1rem 0;
+}
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #E6DAEE; 
+    color: #524556;
+}
+
+.footer a {
+    color: #9B7EAA; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   7. MODAL LIGHTBOX
+   ========================================= */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 3000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(82, 69, 86, 0.85); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-cuerpo {
+    background-color: #F8F4F1; 
+    color: #524556;
+    padding: 25px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 30px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    align-items: flex-start;
+}
+
+.modal-seccion-fotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    flex: 1; 
+}
+
+.modal-imagen {
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.modal-miniaturas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.modal-miniaturas img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover; 
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.modal-miniaturas img:hover,
+.modal-miniaturas img.activa { /* CLASE NUEVA: Para resaltar la foto activa */
+    transform: translateY(-3px); 
+    border-color: #9B7EAA; 
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 250px; 
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #F8F4F1;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3001;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: #DBCFDF;
+}
+
+.btn-whatsapp {
+    background-color: #25D366; 
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1EBE5D;
+    transform: scale(1.02);
+}
+
+/* =========================================
+   8. DISEÑO RESPONSIVO (MÓVILES) - NUEVO
+   ========================================= */
+@media (max-width: 768px) {
+    .mensaje-marca {
+        margin: -30px 20px 40px 20px; /* Ajusta el margen negativo para que no se superponga mal */
+        padding: 25px 20px;
+    }
+    .header-principal h1 {
+        font-size: 2.2rem;
+    }
+    .portada-contenido h2 {
+        font-size: 2.2rem;
+    }
+    .cerrar-modal {
+        top: 10px;
+        right: 20px;
+    }
+    .modal-cuerpo {
+        padding: 15px;
+        gap: 15px;
+    }
+}
