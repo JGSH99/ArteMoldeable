@@ -1,6 +1,7 @@
 /* =========================================
    CONFIGURACIÓN GENERAL
    ========================================= */
+/* Aplica la fuente a toda la página y hace que cuando hagas clic en el menú, baje suavemente (smooth) */
 html {
     font-family: 'Oswald', sans-serif;
     scroll-behavior: smooth; 
@@ -16,13 +17,16 @@ body {
 .header-principal {
     background-color: #E6DAEE; /* Lila Pastel elegante */
     color: #524556; /* Tono Berenjena oscuro */
+    /* display: flex nos permite centrar todo fácilmente tanto horizontal como verticalmente */
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center; 
     padding: 25px 0 10px 0; 
+    /* Box-shadow crea una sombra sutil debajo del menú */
     box-shadow: 0 4px 10px rgba(82, 69, 86, 0.05); 
     position: relative;
+    /* z-index alto asegura que el menú quede por encima de todo el contenido */
     z-index: 100;
 }
 
@@ -30,7 +34,7 @@ body {
     margin: 0;
     margin-bottom: 15px; 
     font-size: 2.8rem; 
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* Separa un poquito las letras del título principal */
 }
 
 .menu-superior {
@@ -40,39 +44,42 @@ body {
 }
 
 .menu-lista {
-    list-style: none;
+    list-style: none; /* Quita los puntitos a las listas <li> */
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 15px; 
+    gap: 15px; /* Da un espacio de 15px entre cada enlace del menú */
 }
 
 .menu-lista > li {
-    position: relative; 
+    position: relative; /* Necesario para que el submenú se posicione en base a su padre */
 }
 
 .menu-lista > li > a {
     display: block;
     padding: 8px 20px;
     color: #524556; 
-    text-decoration: none;
+    text-decoration: none; /* Quita el subrayado feo de los enlaces azules */
     font-size: 1.1rem;
     font-weight: 500;
+    /* transition hace que el cambio de color al pasar el ratón (hover) sea suave, no de golpe */
     transition: background-color 0.3s, color 0.3s;
     border-radius: 0.5rem;
 }
 
+/* :hover es el estado "cuando el usuario pone el cursor encima" */
 .menu-lista > li > a:hover {
     background-color: #DBCFDF; 
 }
 
 /* --- MENÚ DESPLEGABLE --- */
 .dropdown-menu {
+    /* Empieza oculto. Nadie lo ve hasta que se active el hover */
     display: none; 
-    position: absolute; 
+    position: absolute; /* Lo saca del flujo normal para que flote encima del resto de la página */
     top: 100%; 
     left: 50%; 
-    transform: translateX(-50%); 
+    transform: translateX(-50%); /* Centra el menú desplegable debajo de su botón */
     background-color: #F8F4F1; 
     min-width: 220px; 
     box-shadow: 0 10px 20px rgba(82, 69, 86, 0.1); 
@@ -85,6 +92,7 @@ body {
     border: 1px solid #E6DAEE; 
 }
 
+/* ¡MAGIA DE CSS! Cuando paso el ratón por un elemento de la lista superior, busca el dropdown y ponlo en display: block (muéstralo) */
 .menu-lista > li:hover .dropdown-menu {
     display: block;
 }
@@ -110,7 +118,7 @@ body {
 .portada {
     position: relative;
     width: 100%;
-    height: 50vh; 
+    height: 50vh; /* Ocupa el 50% del alto de la pantalla visible */
     display: flex;
     align-items: center; 
     padding: 0 5%;
@@ -126,8 +134,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Hace que la imagen llene todo el espacio sin deformarse */
-    opacity: 0.3; /* MAGIA AQUÍ: 0.1 es muy transparente, 0.9 es casi sólida. Ajústalo a tu gusto */
+    /* object-fit: cover hace que la imagen llene todo el espacio sin achatarse ni estirarse feo */
+    object-fit: cover; 
+    /* opacity: Hace que la imagen sea semi transparente para que el texto se pueda leer bien */
+    opacity: 0.3; 
     z-index: 1; /* Manda la imagen al fondo */
 }
 
@@ -141,7 +151,7 @@ body {
     font-size: 3rem;
     margin-bottom: 10px;
     margin-top: 0;
-    /* Sombras sutiles para que el texto resalte sobre cualquier imagen */
+    /* Sombras sutiles para que el texto resalte sobre cualquier imagen (letragrafía) */
     text-shadow: 0px 2px 5px rgba(255, 255, 255, 0.8); 
 }
 
@@ -159,6 +169,7 @@ body {
     padding: 40px 30px;
     background-color: #FFFFFF; 
     max-width: 850px;
+    /* margin negativo arriba (-50px) es lo que hace que esta caja flote un poco por encima de la foto de portada */
     margin: -50px auto 60px auto; 
     position: relative; 
     z-index: 10;
@@ -186,7 +197,7 @@ body {
    ========================================= */
 .titulo-seccion {
     text-align: center;
-    margin: 40px auto 20px auto;
+    margin: 40px auto 20px auto; /* auto a los lados centra la caja entera */
 }
 
 .titulo-seccion h2 {
@@ -217,28 +228,31 @@ body {
    5. CATÁLOGO DE PRODUCTOS
    ========================================= */
 .imagen1 {
+    /* Flexbox permite que los artículos (productos) se pongan uno al lado de otro */
     display: flex;
+    /* wrap le dice que si no caben más en la fila, pasen a la fila de abajo */
     flex-wrap: wrap; 
     justify-content: center; 
-    gap: 40px; 
+    gap: 40px; /* Separación grande entre productos */
     max-width: 1100px;
     margin: 0 auto 80px auto; 
     padding: 30px 20px 0 20px;
 }
 
+/* Esta es la "tarjeta" blanca de cada producto individual */
 section article {
     background-color: #FFFFFF; 
     border-radius: 0.8rem;
     padding: 1rem 0;
-    cursor: pointer;
+    cursor: pointer; /* Cambia el ratón por una manito indicando que se puede clickear */
     box-shadow: 0 5px 15px rgba(82, 69, 86, 0.05);
     border: 1px solid #F8F4F1;
     transition: all 0.3s ease;
-    width: 320px; 
+    width: 320px; /* Ancho fijo para que todos los cuadros sean del mismo tamaño */
     box-sizing: border-box;
 }
 
-/* CORRECCIÓN: Se eliminó el :hover duplicado */
+/* Efecto al poner el ratón encima de un producto: se eleva un poquito (-8px) y hace la sombra más grande */
 section article:hover {
     box-shadow: 0 10px 25px rgba(82, 69, 86, 0.15);
     transform: translateY(-8px); 
@@ -253,6 +267,7 @@ section article:hover {
     color: #524556; 
 }
 
+/* Oculta de la página principal la lista de pasos (<ol>) y las fotos secundarias (.galeria-oculta) */
 .imagen1 article ol,
 .imagen1 article .galeria-oculta {
     display: none; 
@@ -288,33 +303,35 @@ section article:hover {
 }
 
 /* =========================================
-   7. MODAL LIGHTBOX
+   7. MODAL LIGHTBOX (LA VENTANA EMERGENTE)
    ========================================= */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 3000; 
+    display: none; /* Empieza totalmente oculta. JS le cambia esto a 'flex' */
+    position: fixed; /* Se queda fija en la pantalla, aunque el usuario baje o suba */
+    z-index: 3000; /* Asegura que esté por encima de ABSOLUTAMENTE todo */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    /* Fondo oscuro semi-transparente para tapar la página web que queda detrás */
     background-color: rgba(82, 69, 86, 0.85); 
     justify-content: center; 
     align-items: center; 
 }
 
+/* La caja blanca que contiene la foto en grande y los detalles del producto */
 .modal-cuerpo {
     background-color: #F8F4F1; 
     color: #524556;
     padding: 25px;
     border-radius: 1rem;
     display: flex;
-    flex-direction: row; 
+    flex-direction: row; /* Pone las fotos de un lado y el texto del otro */
     flex-wrap: wrap; 
     gap: 30px;
     max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: 90vh; /* Nunca será más alta que el 90% de la pantalla */
+    overflow-y: auto; /* Si el contenido es muy largo, le pone una barra lateral para bajar */
     text-align: left;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     align-items: flex-start;
@@ -328,10 +345,11 @@ section article:hover {
     flex: 1; 
 }
 
+/* La foto grandota principal en el modal */
 .modal-imagen {
     max-width: 100%;
     max-height: 50vh;
-    object-fit: contain;
+    object-fit: contain; /* Ajusta la foto sin cortarle bordes */
     border-radius: 0.5rem;
 }
 
@@ -344,19 +362,21 @@ section article:hover {
     width: 100%;
 }
 
+/* Las fotitos en miniatura de la galería */
 .modal-miniaturas img {
     width: 70px;
     height: 70px;
     object-fit: cover; 
     border-radius: 0.5rem;
     cursor: pointer;
-    border: 2px solid transparent;
+    border: 2px solid transparent; /* Borde transparente por defecto */
     transition: transform 0.2s, border-color 0.2s;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Cuando tocas una miniatura, JS le añade la clase .activa y le pone el borde lila */
 .modal-miniaturas img:hover,
-.modal-miniaturas img.activa { /* CLASE NUEVA: Para resaltar la foto activa */
+.modal-miniaturas img.activa { 
     transform: translateY(-3px); 
     border-color: #9B7EAA; 
 }
@@ -368,6 +388,7 @@ section article:hover {
     min-width: 250px; 
 }
 
+/* La 'X' gigante en la esquina para cerrar el modal */
 .cerrar-modal {
     position: absolute;
     top: 20px;
@@ -384,6 +405,7 @@ section article:hover {
     color: #DBCFDF;
 }
 
+/* El botón verde de WhatsApp */
 .btn-whatsapp {
     background-color: #25D366; 
     color: white;
@@ -400,26 +422,27 @@ section article:hover {
 
 .btn-whatsapp:hover {
     background-color: #1EBE5D;
-    transform: scale(1.02);
+    transform: scale(1.02); /* Lo hace un 2% más grande al pasar el ratón */
 }
 
 /* =========================================
-   8. DISEÑO RESPONSIVO (MÓVILES) - NUEVO
+   8. DISEÑO RESPONSIVO (MÓVILES) 
    ========================================= */
+/* Estas reglas solo se aplican si la pantalla del usuario mide menos de 768px de ancho (celulares y tablets pequeñas) */
 @media (max-width: 768px) {
     .mensaje-marca {
-        margin: -30px 20px 40px 20px; /* Ajusta el margen negativo para que no se superponga mal */
+        margin: -30px 20px 40px 20px; 
         padding: 25px 20px;
     }
     .header-principal h1 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Achicamos el título para que quepa */
     }
     .portada-contenido h2 {
         font-size: 2.2rem;
     }
     .cerrar-modal {
         top: 10px;
-        right: 20px;
+        right: 20px; /* Movemos la 'X' para que no se salga de la pantallita del celular */
     }
     .modal-cuerpo {
         padding: 15px;
