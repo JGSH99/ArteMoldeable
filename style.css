@@ -22,18 +22,19 @@ body {
     flex-direction: column; 
     justify-content: center;
     align-items: center; 
-    padding: 25px 0 10px 0; 
+    padding: 10px 0 5px 0; 
     /* Box-shadow crea una sombra sutil debajo del menú */
     box-shadow: 0 4px 10px rgba(82, 69, 86, 0.05); 
-    position: relative;
+    position: sticky;
+    top: 0;
     /* z-index alto asegura que el menú quede por encima de todo el contenido */
     z-index: 100;
 }
 
 .header-principal h1 {
     margin: 0;
-    margin-bottom: 15px; 
-    font-size: 2.8rem; 
+    margin-bottom: 5px; 
+    font-size: 2rem; 
     letter-spacing: 2px; /* Separa un poquito las letras del título principal */
 }
 
