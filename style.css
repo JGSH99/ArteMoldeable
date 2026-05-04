@@ -451,4 +451,10 @@ section article:hover {
         padding: 15px;
         gap: 15px;
     }
+    .footer {
+        flex-direction: column; /* Cambia la fila por una columna apilada */
+        gap: 15px; /* Espacio entre los textos */
+        padding: 30px 20px; /* Reducimos el relleno a los lados para que respire */
+        text-align: center;
+    }
 }
