@@ -2,13 +2,19 @@
    CONFIGURACIÓN GENERAL
    ========================================= */
 /* Aplica la fuente a toda la página y hace que cuando hagas clic en el menú, baje suavemente (smooth) */
-html {
+::before, ::after {
+    box-sizing: border-box; /* Evita que los rellenos rompan los tamaños */
+}
+
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden; /* ¡Mata cualquier desbordamiento fantasma lateral! */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
     font-family: 'Oswald', sans-serif;
     scroll-behavior: smooth; 
-}
-body {
-    margin: 0;
-    background-color: #F8F4F1; /* Fondo Nude/Beige muy suave y artístico */
 }
 
 /* =========================================
@@ -429,32 +435,31 @@ section article:hover {
 }
 
 /* =========================================
-   8. DISEÑO RESPONSIVO (MÓVILES) 
+   8. DISEÑO RESPONSIVO (MÓVILES)
    ========================================= */
-/* Estas reglas solo se aplican si la pantalla del usuario mide menos de 768px de ancho (celulares y tablets pequeñas) */
 @media (max-width: 768px) {
-    .mensaje-marca {
-        margin: -30px 20px 40px 20px; 
-        padding: 25px 20px;
+    .mensaje-marca { margin: -30px 20px 40px 20px; padding: 25px 20px; }
+    .header-principal h1 { font-size: 2.2rem; }
+    .portada-contenido h2 { font-size: 2.2rem; }
+    .cerrar-modal { top: 10px; right: 20px; }
+    .modal-cuerpo { padding: 15px; gap: 15px; }
+    
+    /*  MAGIA PARA QUE EL MENÚ NO ROMPA LA PANTALLA  */
+    .menu-lista {
+        flex-wrap: wrap; /* Si no caben los botones, los baja a otra línea */
+        gap: 5px;
     }
-    .header-principal h1 {
-        font-size: 2.2rem; /* Achicamos el título para que quepa */
+    .menu-lista > li > a {
+        font-size: 0.9rem; /* Letra un poco más pequeña en móvil */
+        padding: 5px 8px;
     }
-    .portada-contenido h2 {
-        font-size: 2.2rem;
-    }
-    .cerrar-modal {
-        top: 10px;
-        right: 20px; /* Movemos la 'X' para que no se salga de la pantallita del celular */
-    }
-    .modal-cuerpo {
-        padding: 15px;
-        gap: 15px;
-    }
+
+    /*  REPARACIÓN TOTAL DEL FOOTER  */
     .footer {
-        flex-direction: column; /* Cambia la fila por una columna apilada */
-        gap: 15px; /* Espacio entre los textos */
-        padding: 30px 20px; /* Reducimos el relleno a los lados para que respire */
+        width: 100%; /* Obligamos a que cubra toda la pantalla de lado a lado */
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 30px 20px; 
         text-align: center;
     }
 }
