@@ -453,6 +453,7 @@ section article:hover {
         gap: 15px;
     }
     .footer {
+        width: 100%;
         flex-direction: column; /* Cambia la fila por una columna apilada */
         gap: 15px; /* Espacio entre los textos */
         padding: 30px 20px; /* Reducimos el relleno a los lados para que respire */
